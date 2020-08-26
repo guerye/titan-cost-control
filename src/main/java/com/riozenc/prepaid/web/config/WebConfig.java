@@ -3,9 +3,9 @@
  *    Date:2018年12月11日 下午4:49:31
  *    Title:security.web.WebConfig.java
  **/
-package com.riozenc.costControl.web.config;
+package com.riozenc.prepaid.web.config;
 
-import com.riozenc.costControl.web.interceptor.BaseInterceptor;
+import com.riozenc.prepaid.web.interceptor.BaseInterceptor;
 import com.riozenc.titanTool.spring.context.SpringContextHolder;
 import com.riozenc.titanTool.spring.web.client.TitanTemplate;
 import org.springframework.cloud.client.loadbalancer.LoadBalanced;

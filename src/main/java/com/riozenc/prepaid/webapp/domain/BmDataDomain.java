@@ -1,4 +1,4 @@
-package com.riozenc.costControl.webapp.domain;
+package com.riozenc.prepaid.webapp.domain;
 
 import java.math.BigDecimal;
 import java.util.Date;

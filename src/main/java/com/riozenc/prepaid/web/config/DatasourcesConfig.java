@@ -3,7 +3,7 @@
  *    Date:2019年3月11日 下午7:45:53
  *    Title:com.riozenc.cim.web.config.DatasourcesConfig.java
  **/
-package com.riozenc.costControl.web.config;
+package com.riozenc.prepaid.web.config;
 
 import org.springframework.context.annotation.Configuration;
 

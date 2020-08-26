@@ -3,7 +3,7 @@
  *    Date:2018年12月11日 下午4:43:06
  *    Title:security.web.interceptor.BaseInterceptor.java
  **/
-package com.riozenc.costControl.web.interceptor;
+package com.riozenc.prepaid.web.interceptor;
 
 import com.riozenc.titanTool.spring.interceptor.DefaultInterceptor;
 

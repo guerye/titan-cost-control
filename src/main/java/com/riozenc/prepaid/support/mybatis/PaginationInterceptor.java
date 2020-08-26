@@ -3,7 +3,7 @@
  *    Date:2018年5月10日 上午11:03:27
  *    Title:cis.support.mybatis.PaginationInterceptor.java
  **/
-package com.riozenc.costControl.support.mybatis;
+package com.riozenc.prepaid.support.mybatis;
 
 import com.riozenc.titanTool.annotation.PaginationSupport;
 import org.apache.ibatis.executor.Executor;

@@ -24,7 +24,7 @@ PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
 
 	<plugins>
 		<plugin
-			interceptor="com.riozenc.billing.support.mybatis.PaginationInterceptor"></plugin>
+			interceptor="com.riozenc.prepaid.support.mybatis.PaginationInterceptor"></plugin>
 	</plugins>
 
 </configuration>

@@ -1,12 +1,9 @@
-package com.riozenc.costControl.webapp.controller;
+package com.riozenc.prepaid.webapp.controller;
 
 import com.alibaba.fastjson.JSON;
-import com.alibaba.fastjson.JSONObject;
-import com.riozenc.costControl.webapp.domain.BmDataDomain;
-import com.riozenc.costControl.webapp.service.ICimService;
+import com.riozenc.prepaid.webapp.domain.BmDataDomain;
+import com.riozenc.prepaid.webapp.service.ICimService;
 import com.riozenc.titanTool.properties.Global;
-import com.riozenc.titanTool.spring.web.http.HttpResult;
-import org.apache.commons.lang.CharSet;
 import org.apache.commons.net.ftp.FTPClient;
 import org.apache.commons.net.ftp.FTPReply;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,7 +14,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
 import java.io.*;
-import java.nio.charset.Charset;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
@@ -43,6 +39,7 @@ public class DataAnalysisController {
                 List<BmDataDomain>list=JSON.parseObject(inputStream,List.class);
                 List<Long> ids=new ArrayList<Long>();
                 HashMap<String,Object> cimMap= iCimService.meterReadingInit(ids);
+                System.out.println("s");
             }
 
     }

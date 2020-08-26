@@ -1,4 +1,4 @@
-package com.riozenc.costControl.webapp.service;
+package com.riozenc.prepaid.webapp.service;
 
 import java.util.HashMap;
 import java.util.List;
