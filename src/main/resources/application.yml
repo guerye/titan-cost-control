@@ -16,5 +16,5 @@ eureka:
       #defaultZone: http://47.92.88.159:7777/eureka/
 logging:
   level:
-    org.riozenc.billing: debug
+    org.riozenc.costControl: debug
   path: log
