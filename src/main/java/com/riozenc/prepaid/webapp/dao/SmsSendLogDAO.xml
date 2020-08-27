@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.riozenc.prepaid.webapp.dao.SmsSendLogDAO">
+
+<sql id="Base_Column_List">
+ID,SETTLEMENT_NO,SETTLEMENT_NAME,SETTLEMENT_PHONE,WARN_TIMES,CUT_TIMES
+</sql>
+
+<select id="findByKey" parameterType="SmsSendLogDomain" resultType="SmsSendLogDomain" useCache="true">
+	select 
+		<include refid="Base_Column_List" />
+	from 
+	SMS_SEND_LOG
+	<where>
+	 and ID = #{id}
+	</where>
+</select>
+<select id="findByWhere" parameterType="SmsSendLogDomain" resultType="SmsSendLogDomain" useCache="true">
+	select 
+		<include refid="Base_Column_List" />
+	from 
+	SMS_SEND_LOG
+	<where>
+		<if test="id !=null"> 
+		 and ID = #{id}
+		</if>
+		<if test="settlementNo !=null"> 
+		 and SETTLEMENT_NO = #{settlementNo}
+		</if>
+		<if test="settlementName !=null"> 
+		 and SETTLEMENT_NAME = #{settlementName}
+		</if>
+		<if test="settlementPhone !=null"> 
+		 and SETTLEMENT_PHONE = #{settlementPhone}
+		</if>
+		<if test="warnTimes !=null"> 
+		 and WARN_TIMES = #{warnTimes}
+		</if>
+		<if test="cutTimes !=null"> 
+		 and CUT_TIMES = #{cutTimes}
+		</if>
+
+	</where>
+</select>
+
+<insert id="insert" parameterType="SmsSendLogDomain" flushCache="true">
+	insert into SMS_SEND_LOG
+	(<include refid="Base_Column_List" />) 
+	values 
+	(#{id},#{settlementNo},#{settlementName},#{settlementPhone},#{warnTimes},#{cutTimes})
+</insert>
+
+<update id="update" parameterType="SmsSendLogDomain" flushCache="true">
+	update SMS_SEND_LOG
+		<set>
+			<if test="settlementNo !=null">
+			SETTLEMENT_NO = #{settlementNo},
+			</if>
+			<if test="settlementName !=null">
+			SETTLEMENT_NAME = #{settlementName},
+			</if>
+			<if test="settlementPhone !=null">
+			SETTLEMENT_PHONE = #{settlementPhone},
+			</if>
+			<if test="warnTimes !=null">
+			WARN_TIMES = #{warnTimes},
+			</if>
+			<if test="cutTimes !=null">
+			CUT_TIMES = #{cutTimes}
+			</if>
+		</set>
+		<where>
+		 and ID = #{id}
+		</where>
+</update>
+<delete id="delete" parameterType="SmsSendLogDomain" flushCache="true">
+delete from SMS_SEND_LOG
+<where>
+ and ID = #{id}
+
+</where>
+</delete>
+
+<select id="findByPhone" parameterType="String" resultType="SmsSendLogDomain" useCache="false">
+	select 
+		<include refid="Base_Column_List" />
+	from 
+	SMS_SEND_LOG
+	<where>
+	SETTLEMENT_PHONE IN
+		<foreach item="item" index="index" collection="list" open="("
+			separator="," close=")">
+			${item}
+		</foreach>
+
+	</where>
+</select>
+
+
+
+
+</mapper>

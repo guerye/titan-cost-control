@@ -32,15 +32,8 @@ public class SmsController {
          
 		List<DailyChargeDomain> dailyChargeList = 
 				JSONUtil.readValue(body, new TypeReference<List<DailyChargeDomain>>() {});
-		
-		
-		
-		
+			
 		return null;
-		
-		
-		
-		
 		
     } 
     

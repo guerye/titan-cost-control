@@ -1,16 +1,19 @@
 package com.riozenc.prepaid.webapp.service.impl;
 
+import com.riozenc.prepaid.webapp.dao.SmsSendLogDAO;
 import com.riozenc.prepaid.webapp.domain.DailyChargeDomain;
 import com.riozenc.prepaid.webapp.domain.SmsMessageDomain;
 import com.riozenc.prepaid.webapp.domain.SmsSendDomain;
 import com.riozenc.prepaid.webapp.domain.SmsSendLogDomain;
 import com.riozenc.prepaid.webapp.service.ISmsService;
+import com.riozenc.titanTool.annotation.TransactionDAO;
 import com.riozenc.titanTool.annotation.TransactionService;
 import com.riozenc.titanTool.properties.Global;
 import com.riozenc.titanTool.spring.web.http.HttpResult;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.client.RestTemplate;
@@ -19,6 +22,8 @@ import org.springframework.web.client.RestTemplate;
 public class SmsServiceImpl implements ISmsService {
     @Autowired
     private RestTemplate restTemplate;
+	@TransactionDAO
+	private SmsSendLogDAO smsSendLogDAO;
 
     private final String smsUser = Global.getConfig("smsUser");
     private final String smsPassword = Global.getConfig("smsPassword");
@@ -73,10 +78,12 @@ public class SmsServiceImpl implements ISmsService {
 		}
 		List<SmsSendLogDomain> smsSendLogList = new ArrayList<>();
 		if(dcl.size()>1000) {
-			//smsSendLogList = 
+			smsSendLogList = smsSendLogDAO.findByWhere(null);
 		}
 		else{
-			
+			List<String> phoneNos = dcl.stream().map(DailyChargeDomain::getSettlementPhone)
+					.collect(Collectors.toList());
+			smsSendLogList = smsSendLogDAO.findByPhone(phoneNos);
 		}
 		
 		
