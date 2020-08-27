@@ -1,11 +1,18 @@
 package com.riozenc.prepaid.webapp.domain;
 
+import java.util.Date;
+import java.util.List;
+
 public class SmsSendDomain {
 
 	private String smsUser;
 	private String smsPassword;
 	private String interfaceId;
 	private String smsId;
+	private Date beginDateTime;
+	private Date endDateTime;
+	private List<String> phoneList;
+	private List<SmsMessageDomain> data;
 	
 	public String getSmsUser() {
 		return smsUser;
@@ -30,6 +37,30 @@ public class SmsSendDomain {
 	}
 	public void setSmsId(String smsId) {
 		this.smsId = smsId;
+	}
+	public Date getBeginDateTime() {
+		return beginDateTime;
+	}
+	public void setBeginDateTime(Date beginDateTime) {
+		this.beginDateTime = beginDateTime;
+	}
+	public Date getEndDateTime() {
+		return endDateTime;
+	}
+	public void setEndDateTime(Date endDateTime) {
+		this.endDateTime = endDateTime;
+	}
+	public List<String> getPhoneList() {
+		return phoneList;
+	}
+	public void setPhoneList(List<String> phoneList) {
+		this.phoneList = phoneList;
+	}
+	public List<SmsMessageDomain> getData() {
+		return data;
+	}
+	public void setData(List<SmsMessageDomain> data) {
+		this.data = data;
 	}
 	
 
